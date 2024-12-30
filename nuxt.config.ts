@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       }
     }],
     '@nuxt/icon',
-    '@prisma/nuxt'
+    '@prisma/nuxt'  
   ],
   shadcn: {
     prefix: 'Ui',
