@@ -14,7 +14,7 @@
         <label for="newPassword">Новый пароль:</label>
         <input type="password" id="newPassword" v-model="newPassword" class="text-black" />
       </div>
-       <AvatarUpload/>
+
          <div v-if="errorMessage" style="color: red">{{ errorMessage }}</div>
       <div class="buttons-container">
         <button type="submit" class="border rounded-md py-2 px-4 hover:bg-gray-200 transition-colors">
