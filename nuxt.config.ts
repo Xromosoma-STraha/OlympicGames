@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
   modules: [
+    
     '@nuxt/ui',
     '@nuxt/image',
     'shadcn-nuxt',
@@ -17,8 +18,11 @@ export default defineNuxtConfig({
       }
     }],
     '@nuxt/icon',
-    '@prisma/nuxt'  
+
   ],
+  nitro: {
+    preset: 'vercel',
+  },
   shadcn: {
     prefix: 'Ui',
     componentDir: './components/ui'
