@@ -66,7 +66,7 @@ async function submitForm() {
 
     isSubmitting.value = true;
     try {
-        const response = await $fetch('/api/reg', {
+        const response = await $fetch('/api/register', {
               method: 'POST',
               body: {
                 userName: userName.value,
