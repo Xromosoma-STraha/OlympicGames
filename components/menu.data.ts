@@ -6,23 +6,28 @@ export interface IMenuItem{
 
 export const MENU_DATA:IMenuItem[]=[{
     icon:'radix-icons:dashboard',
-    name:'map',
+    name:'Countries count',
     url:'/'
     },
     {
         icon:'radix-icons:plus-circled',
-        name:'add training',
-       url:'/trainingAdd'
+        name:'Athlets',
+       url:'/Athlets'
     },
     {
         icon:'radix-icons:gear',
-        name:'profile',
-        url:'/profile'
+        name:'Sports',
+        url:'/sports'
     },
    
      {
         icon:'majesticons:academic-cap-line',
-        name:'analytics',
-       url:'/analytics'
+        name:'Records',
+       url:'/records'
+    },
+    {
+        icon:'majesticons:academic-cap-line',
+        name:'Olympic Games',
+       url:'/Olympic_Games'
     }
 ]

@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'shadcn-nuxt',
     '@nuxtjs/google-fonts',
-    '@pinia/nuxt',
     ['@nuxtjs/google-fonts', {
       families: {
         Lato: {
@@ -20,9 +19,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
 
   ],
-  nitro: {
-    preset: 'vercel',
-  },
   shadcn: {
     prefix: 'Ui',
     componentDir: './components/ui'

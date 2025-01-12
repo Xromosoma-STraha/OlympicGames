@@ -5,24 +5,15 @@
       @mouseenter="isSidebarOpen = true"
       @mouseleave="isSidebarOpen = false"
   >
-      <NuxtLink to="/" class="mb-10 block">
-          <NuxtImg src="/ava.jpg" alt="" width="100px" class="mx-auto rounded-full" />
-      </NuxtLink>
+      
 
-      <button @click="logout" class="absolute top-2 right-3 transition-colors hover:text-primary">
-          <Icon name="solar:logout-2-outline" size="20px"/>
-      </button>
+     
        <div class="menu-icons" v-if="!isSidebarOpen">
           <div v-for="item in menuData" :key="item.name">
              <NuxtLink :to="item.url"> <Icon :name="item.icon" size="25px"></Icon></NuxtLink>
           </div>
        </div>
-      <div class="sidebar-content" :class="{ 'sidebar-open': isSidebarOpen }">
-            <div v-if="userData" class="user-info">
-               <img v-if="userData.avatarUrl" :src="userData.avatarUrl" alt="avatar" class="user-avatar mx-auto"/>
-              <p class="user-name text-center">{{ userData.firstName }} {{userData.lastName}}</p>
-              <p class="user-id text-center">ID: {{userData.id}}</p>
-            </div>
+      <div class="sidebar-content" :class="{ 'sidebar-open': isSidebarOpen }">            
          <Menu/>
       </div>
   </aside>
@@ -30,48 +21,17 @@
 </template>
 
 <script setup lang="ts">
-import { useAuthStore } from '~/stores/auth'
-import { useRouter, useFetch } from '#app' // Импортируем useRouter
+
 import { ref, onMounted, watch } from 'vue';
 import {MENU_DATA} from "./menu.data";
 
-const authStore = useAuthStore()
-const router = useRouter() // Создаем экземпляр useRouter
-const userData = ref<User | null>(null)
+
+
 const isSidebarOpen = ref(false);
 const menuData = ref(MENU_DATA)
-interface User {
-  firstName: string;
-  lastName: string;
-  id: number;
-   avatarUrl:string | null
-}
-
-watch(()=>authStore.userId, async(userId,oldUserId) => {
-   if(userId){
-      try{
-          const response = await $fetch<User>(`/api/users/${userId}`, {
-          method: 'GET',
-          });
-            userData.value = response
-      }
-      catch(error) {
-           console.error("не удалось получить пользователя", error)
-            userData.value = null;
-      }
-  } else {
-       userData.value = null;
-  }
-}, { immediate: true })
 
 
-async function logout() {
-authStore.logout()  // Вызываем action logout из хранилища
-  console.log('Выход выполнен');
 
-await router.push('/loginpage'); // Перенаправляем на страницу входа
-
-}
   
 </script>
 
